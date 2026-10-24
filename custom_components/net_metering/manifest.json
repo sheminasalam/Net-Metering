@@ -1,9 +1,6 @@
 {
   "domain": "net_metering",
   "name": "Net Metering",
-  "categories": [
-    "energy.meters_monitoring"
-  ],
   "codeowners": [
     "@sheminasalam"
   ],
