@@ -1,0 +1,14 @@
+{
+  "domain": "net_metering",
+  "name": "Net Metering",
+  "version": "1.0.1",
+  "documentation": "https://github.com/sheminasalam/net-metering#readme",
+  "issue_tracker": "https://github.com/sheminasalam/net-metering/issues",
+  "dependencies": [],
+  "codeowners": [
+    "@sheminasalam"
+  ],
+  "requirements": [],
+  "config_flow": true,
+  "iot_class": "local_polling"
+}

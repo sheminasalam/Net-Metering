@@ -1,0 +1,42 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Net Metering",
+        "description": "Configure the two source sensors used to calculate grid import and export.",
+        "data": {
+          "solar_production_sensor": "Solar Production Sensor",
+          "energy_consumption_sensor": "Energy Consumption Sensor",
+          "solar_self_resetting_at_midnight": "Solar Production Sensor – self-resetting at midnight",
+          "energy_self_resetting_at_midnight": "Energy Consumption Sensor – self-resetting at midnight"
+        },
+        "data_description": {
+          "solar_production_sensor": "The SolarMan / inverter today-production entity (kWh).",
+          "energy_consumption_sensor": "The ESP32 / ESPHome cumulative energy entity (kWh).",
+          "solar_self_resetting_at_midnight": "Select Yes if the solar sensor resets to zero each day at midnight.",
+          "energy_self_resetting_at_midnight": "Select Yes if the energy sensor resets to zero each day at midnight."
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Net Metering Options",
+        "description": "Update source sensors or self-reset behaviour. Cumulative totals are never reset.",
+        "data": {
+          "solar_production_sensor": "Solar Production Sensor",
+          "energy_consumption_sensor": "Energy Consumption Sensor",
+          "solar_self_resetting_at_midnight": "Solar Production Sensor – self-resetting at midnight",
+          "energy_self_resetting_at_midnight": "Energy Consumption Sensor – self-resetting at midnight"
+        },
+        "data_description": {
+          "solar_production_sensor": "The SolarMan / inverter today-production entity (kWh).",
+          "energy_consumption_sensor": "The ESP32 / ESPHome cumulative energy entity (kWh).",
+          "solar_self_resetting_at_midnight": "Select Yes if the solar sensor resets to zero each day at midnight.",
+          "energy_self_resetting_at_midnight": "Select Yes if the energy sensor resets to zero each day at midnight."
+        }
+      }
+    }
+  }
+}
