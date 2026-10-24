@@ -4,6 +4,32 @@ A custom Home Assistant integration that estimates and accumulates **grid energy
 
 > **Important:** These are calculated estimates, not direct measurements from a utility meter. Accuracy depends on the two source sensors and their reset behaviour.
 
+## Why this integration exists
+
+In many residential rooftop solar installations in India, the electricity utility provides a bidirectional net meter for billing, but that meter may be sealed, inaccessible, or lack a smart interface that Home Assistant can read. Often, the only available energy readings are:
+
+- **Solar production:** a cumulative kWh reading from the solar inverter (for example, an inverter integration or SolarMan).
+- **Total household consumption:** a cumulative kWh reading from a separate energy-monitoring system. This could be a PZEM-004T-based monitor, a three-phase meter arrangement, ESPHome, or any other compatible energy meter.
+
+Without accessible grid-import and grid-export readings, it can be difficult to populate the corresponding sections of Home Assistant's Energy Dashboard. Net Metering bridges that gap by **estimating** grid import and export from the two readings you already have.
+
+### Example
+
+Suppose the solar inverter reports **2.0 kWh** produced and the household energy meter reports **1.2 kWh** consumed during the same calculation interval. The estimated surplus is **0.8 kWh**, which is added to Grid Export.
+
+If the inverter instead produces **2.0 kWh** while the house consumes **2.5 kWh**, the estimated shortfall is **0.5 kWh**, which is added to Grid Import.
+
+```text
+Solar production change - Household consumption change = Net energy
+
+Positive net energy -> estimated grid export
+Negative net energy -> estimated grid import
+```
+
+The resulting cumulative sensors can be used as estimated grid-import and grid-export inputs in Home Assistant's Energy Dashboard.
+
+**Important limitations:** The consumption sensor must represent **total household consumption**, including consumption supplied by solar. A meter that only measures electricity imported from the grid is not a suitable substitute. Because the integration compares energy totals over intervals rather than continuously measuring power flow at the grid connection, simultaneous import and export within an interval can cancel out in the estimate. Battery charging/discharging and other energy paths may also require a different accounting model. These estimates are useful for monitoring but are **not a replacement for a utility-grade bidirectional meter or billing data**.
+
 ## What it creates
 
 After setup, the integration creates a **Net Metering** device with these entities:
