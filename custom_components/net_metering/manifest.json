@@ -1,14 +1,17 @@
 {
   "domain": "net_metering",
   "name": "Net Metering",
-  "version": "1.0.1",
-  "documentation": "https://github.com/sheminasalam/net-metering#readme",
-  "issue_tracker": "https://github.com/sheminasalam/net-metering/issues",
-  "dependencies": [],
+  "categories": [
+    "energy.meters_monitoring"
+  ],
   "codeowners": [
     "@sheminasalam"
   ],
-  "requirements": [],
   "config_flow": true,
-  "iot_class": "local_polling"
+  "dependencies": [],
+  "documentation": "https://github.com/sheminasalam/net-metering#readme",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/sheminasalam/net-metering/issues",
+  "requirements": [],
+  "version": "1.0.1"
 }
