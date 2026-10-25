@@ -61,12 +61,10 @@ def _options_schema(defaults: dict[str, Any]) -> vol.Schema:
             vol.Required(
                 CONF_SOLAR_SELF_RESET,
                 default=_bool_to_str(defaults.get(CONF_SOLAR_SELF_RESET, True)),
-                description={"suggested_value": "Solar Production Sensor: self-resetting at midnight"},
             ): _YES_NO,
             vol.Required(
                 CONF_ENERGY_SELF_RESET,
                 default=_bool_to_str(defaults.get(CONF_ENERGY_SELF_RESET, False)),
-                description={"suggested_value": "Energy Consumption Sensor: self-resetting at midnight"},
             ): _YES_NO,
         }
     )
